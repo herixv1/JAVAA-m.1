@@ -3,7 +3,7 @@ package Herencia;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Animal {
+public abstract class Animal {
     protected  String nombre;
     protected  String especie;
     protected  LocalDate nacio;
