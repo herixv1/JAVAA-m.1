@@ -27,11 +27,11 @@ public class Perro extends Animal {
 
     
     public void hacerSonido () {
-        System.out.println(this.getNombre()+"guau");
+        System.out.println(this.getNombre()+"*guau*");
     }
 
     public void Socializar () {
-        System.out.println(this.getNombre()+"si soy");
+        System.out.println(this.getNombre()+"*si soy*");
     }
 
     public void Muerde () {
@@ -40,7 +40,7 @@ public class Perro extends Animal {
 
     @Override
     public String toString() {
-        return "Prro [raza=" + raza + "]";
+        return super.toString()+" [raza=" + raza + "]";
     }
     
 }

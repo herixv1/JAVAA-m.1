@@ -69,7 +69,7 @@ public class Animal {
         return edad;
     }
 
-    private void hacerSonido() {
+    public void hacerSonido() {
         System.out.println("hagoo ruido perron como animal");
     }
 }
