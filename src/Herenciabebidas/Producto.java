@@ -1,5 +1,10 @@
 package Herenciabebidas;
 
-public class Producto {
+public abstract class Producto {
+    private int id;
+    private String descripcion;
+    private double precio;
+
+    public abstract double getpreciofinal();
 
 }
