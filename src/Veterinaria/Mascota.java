@@ -41,6 +41,11 @@ public class Mascota implements Comparable<Mascota>{
 	this.nacio = nacio;
 	this.caso = 1;
    }
+
+   public Mascota(String nombre) {
+	this();
+	this.nombre = nombre;
+   }
         // cuando exista mas de un metodo debes de escribir el constructor sin parametros si lo ocupas asi
    public Mascota() {
 		this.idMascota = 0;
