@@ -1,24 +1,34 @@
 package Herenciabebidas;
 
 public class AguaMineral extends Producto {
-    private double volumen;
+
     private String origen;
-    
 
-
-
-    @Override
-    public double getpreciofinal() {
-        return getprecio();
-    }
-    @Override
-    public void mostrar() {
-        System.out.println("Agua Mineral:");
-        System.out.println("ID: " + getId());
-        System.out.println("Descripción: " + getDescripcion());
-        System.out.println("Precio: " + getprecio());
-        System.out.println("Volumen: " + volumen);
-        System.out.println("Origen: " + origen);
+    public AguaMineral(int id, String descripcion, double tamanio,String unidadMedida, int unidadesExistencia,double precio, String marca, String origen) {
+        super(id, descripcion, tamanio, unidadMedida,unidadesExistencia, precio, marca);
+        this.origen = origen;
     }
 
+    @Override
+    public double getPrecioFinal() {
+        return getPrecio();
+    }
+
+    @Override
+    public void mostrarInfo() {
+        System.out.println(">>> AGUA MINERAL");
+        super.mostrarInfo(); 
+        System.out.println("Origen : " + origen);
+    }
+
+    public String getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
+
+   
+   
 }
