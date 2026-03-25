@@ -29,25 +29,24 @@ public class BebidaAzucarada extends Producto {
         System.out.println("Promocion   : " + (tienePromocion ? "Si (10% descuento)" : "No"));
     }
 
-
     public double getPorcentajeAzucar() {
         return porcentajeAzucar;
     }
-
 
     public void setPorcentajeAzucar(double porcentajeAzucar) {
         this.porcentajeAzucar = porcentajeAzucar;
     }
 
-
     public boolean isTienePromocion() {
         return tienePromocion;
     }
 
-
     public void setTienePromocion(boolean tienePromocion) {
         this.tienePromocion = tienePromocion;
     }
+
+
+    
 
     
 
