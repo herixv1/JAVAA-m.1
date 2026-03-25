@@ -1,6 +1,5 @@
 package Veterinaria;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 
 public class MascotasA {

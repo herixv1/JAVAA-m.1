@@ -7,8 +7,8 @@ public class AppMaquinaExpendedora {
 
         Almacen almacen = new Almacen(3, 5);
 
-        AguaMineral agua1 = new AguaMineral(1, "Agua Natural", 1.5, "litros",100, 0.60, "Aquarius", "Manantial Sierra Nevada");
-        AguaMineral agua2 = new AguaMineral(2, "Agua con Gas", 0.5, "litros",80,  0.80, "Perrier",  "Manantial Vergeze Francia");
+        AguaMineral agua1 = new AguaMineral(1, "Peñafiel Naranja", 1.5, "litros",100, 0.60, "Peñafiel", "Manantial Sierra Nevada");
+        AguaMineral agua2 = new AguaMineral(2, "Topochico", 0.5, "litros",80,  0.80, "Topochico",  "Manantial Vergeze Francia");
         BebidaAzucarada coca1 = new BebidaAzucarada(3, "Coca-Cola Original", 0.33, "litros",200, 1.20, "Coca-Cola", 10.6, true);
         BebidaAzucarada fanta = new BebidaAzucarada(4, "Fanta Naranja", 0.50, "litros", 150, 1.00, "Fanta",     8.3,  false);
         BebidaAzucarada coca2 = new BebidaAzucarada(5, "Coca-Cola Zero", 0.50, "litros", 120, 1.10, "Coca-Cola", 0.0,  true);
