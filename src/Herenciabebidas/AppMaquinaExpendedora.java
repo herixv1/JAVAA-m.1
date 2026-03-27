@@ -1,49 +1,110 @@
 package Herenciabebidas;
 
+import java.util.Scanner;
+
 public class AppMaquinaExpendedora {
+
+    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
 
+        Almacen almacen = new Almacen(5, 10);
+        int opcion;
 
-        Almacen almacen = new Almacen(3, 5);
+        do {
+            System.out.println("\n-----------------------------");
+            System.out.println("     Almacén de Bebidas      ");
+            System.out.println("-----------------------------");
+            System.out.println("1. Agregar producto");
+            System.out.println("2. Eliminar producto");
+            System.out.println("3. Mostrar todos los productos");
+            System.out.println("4. Valor total del almacén");
+            System.out.println("5. Valor total por marca");
+            System.out.println("0. Salir");
+            System.out.println("-----------------------------");
 
-        AguaMineral agua1 = new AguaMineral(1, "Agua Natural", 1.5, "litros",100, 0.60, "Aquarius", "Manantial Sierra Nevada");
-        AguaMineral agua2 = new AguaMineral(2, "Agua con Gas", 0.5, "litros",80,  0.80, "Perrier",  "Manantial Vergeze Francia");
-        BebidaAzucarada coca1 = new BebidaAzucarada(3, "Coca-Cola Original", 0.33, "litros",200, 1.20, "Coca-Cola", 10.6, true);
-        BebidaAzucarada fanta = new BebidaAzucarada(4, "Fanta Naranja", 0.50, "litros", 150, 1.00, "Fanta",     8.3,  false);
-        BebidaAzucarada coca2 = new BebidaAzucarada(5, "Coca-Cola Zero", 0.50, "litros", 120, 1.10, "Coca-Cola", 0.0,  true);
+            opcion = leerInt("Opción: ");
 
-        System.out.println("=== AGREGANDO PRODUCTOS ===");
-        almacen.agregarProducto(agua1, 0); 
-        almacen.agregarProducto(agua2, 0);
-        almacen.agregarProducto(coca1, 1);  
-        almacen.agregarProducto(fanta, 1);
-        almacen.agregarProducto(coca2, 2);
+            switch (opcion) {
+                case 1 -> agregarProducto(almacen);
+                case 2 -> {
+                    int id = leerInt("ID a eliminar: ");
+                    almacen.eliminarProducto(id);
+                }
+                case 3 -> almacen.mostrarTodo();
+                case 4 -> System.out.printf("Valor total: %.2f EUR%n", almacen.calcularValorTotal());
+                case 5 -> {
+                    System.out.print("Marca: ");
+                    String marca = sc.nextLine().trim();
+                    System.out.printf("Valor total de '%s': %.2f EUR%n", marca, almacen.calcularValorPorMarca(marca));
+                }
+                case 0 -> System.out.println("Hasta luego.");
+                default -> System.out.println("Opción no válida.");
+            }
 
-        AguaMineral duplicado = new AguaMineral(1, "Copia", 1.0, "litros",10, 0.50, "X", "Desconocido");
-        almacen.agregarProducto(duplicado, 0);
+        } while (opcion != 0);
 
-        System.out.println("\n=== INFORMACION DEL ALMACEN ===");
-        almacen.mostrarTodo();
+        sc.close();
+    }
 
-        System.out.println("\n=== CALCULOS ===");
-        double total = almacen.calcularValorTotal();
-        System.out.printf("Valor total del almacen: %.2f €%n", total);
+    static void agregarProducto(Almacen almacen) {
+        System.out.println("\n1. Agua Mineral");
+        System.out.println("2. Bebida Azucarada");
+        int tipo = leerInt("Tipo: ");
 
-        double totalCoca = almacen.calcularValorPorMarca("Coca-Cola");
-        System.out.printf("Valor total Coca-Cola: %.2f €%n", totalCoca);
+        if (tipo != 1 && tipo != 2) {
+            System.out.println("Tipo no válido.");
+            return;
+        }
 
-        double totalFanta = almacen.calcularValorPorMarca("Fanta");
-        System.out.printf("Valor total Fanta: %.2f €%n", totalFanta);
+        int id = leerInt("ID: ");
+        System.out.print("Descripción: ");
+        String desc = sc.nextLine().trim();
+        double tamanio = leerDouble("Tamaño (ej: 1.5): ");
+        System.out.print("Unidad (ej: litros): ");
+        String unidad = sc.nextLine().trim();
+        int existencia = leerInt("Unidades en existencia: ");
+        double precio = leerDouble("Precio: ");
+        System.out.print("Marca: ");
+        String marca = sc.nextLine().trim();
+        int estanteria = leerInt("Número de estantería (0-4): ");
 
-        System.out.println("\n=== ELIMINANDO PRODUCTO ID=4 (Fanta) ===");
-        almacen.eliminarProducto(4);
+        if (tipo == 1) {
+            System.out.print("Origen: ");
+            String origen = sc.nextLine().trim();
+            almacen.agregarProducto(
+                new AguaMineral(id, desc, tamanio, unidad, existencia, precio, marca, origen),
+                estanteria
+            );
+        } else {
+            double porcentaje = leerDouble("Porcentaje de azúcar: ");
+            int promo = leerInt("¿Tiene promoción? (1=Sí, 0=No): ");
+            almacen.agregarProducto(
+                new BebidaAzucarada(id, desc, tamanio, unidad, existencia, precio, marca, porcentaje, promo == 1),
+                estanteria
+            );
+        }
+    }
 
-        almacen.eliminarProducto(99);
+    static int leerInt(String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+            try {
+                return Integer.parseInt(sc.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Introduce un número entero.");
+            }
+        }
+    }
 
-        System.out.println("\n=== ALMACEN TRAS ELIMINAR ===");
-        almacen.mostrarTodo();
-
-        System.out.printf("%nValor total actualizado: %.2f €%n",almacen.calcularValorTotal());
+    static double leerDouble(String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+            try {
+                return Double.parseDouble(sc.nextLine().trim().replace(",", "."));
+            } catch (NumberFormatException e) {
+                System.out.println("Introduce un número decimal.");
+            }
+        }
     }
 }
