@@ -1,7 +1,9 @@
-package Veterinaria;
+package Mcitas;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+import Veterinaria.Mascota;
 
 public class Cita {
     private int idcita;

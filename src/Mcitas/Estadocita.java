@@ -1,4 +1,4 @@
-package Veterinaria;
+package Mcitas;
 
 public enum Estadocita {
     PROGRAMADA,

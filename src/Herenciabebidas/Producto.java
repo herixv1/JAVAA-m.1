@@ -28,9 +28,9 @@ public abstract class Producto {
         System.out.println("Descripcion : " + descripcion);
         System.out.println("Tamaño      : " + tamanio + " " + unidadMedida);
         System.out.println("Existencias : " + unidadesExistencia + " unidades");
-        System.out.println("Precio base : " + precio + " €");
+        System.out.println("Precio base : " + precio + " $");
         System.out.println("Marca       : " + marca);
-        System.out.println("Precio final: " + getPrecioFinal() + " €");
+        System.out.println("Precio final: " + getPrecioFinal() + " $");
     }
 
     public int getId() {

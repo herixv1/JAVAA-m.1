@@ -1,4 +1,4 @@
-package Veterinaria;
+package Mcitas;
 
 public enum Tiposervicio {
     CONSULTA("Consulta",500),
