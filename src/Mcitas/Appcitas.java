@@ -5,7 +5,8 @@ import java.time.LocalTime;
 import Veterinaria.Mascota;
 
 public class Appcitas {
-    public static void main(String[] args) {
+
+    public void menucitas() {
         
         Mascota miMascota = new Mascota("Arya");
         Cita cita1 = new Cita(1, LocalDate.now(), LocalTime.now(), miMascota, Tiposervicio.CONSULTA, Estadocita.PROGRAMADA);
@@ -16,5 +17,6 @@ public class Appcitas {
         cita1.mostrarInfo();
         cita2.mostrarInfo();
     }
+    
 
 }

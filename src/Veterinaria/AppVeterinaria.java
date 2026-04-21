@@ -13,10 +13,10 @@ public class AppVeterinaria {
 		mascotas = new MascotasA(50);
 	}
 	
-	public static void main(String[] args) {
-		AppVeterinaria obj = new AppVeterinaria();
-		obj.menu();
-	}
+	//public static void main(String[] args) {
+	//	AppVeterinaria obj = new AppVeterinaria();
+	//	obj.menu();
+	//}
 	
 		// metodo para leer un String que representa la fecha y lo comvierte a un tipo de  dato LocalDate
 	public  LocalDate leerFechaNacimiento() {
