@@ -14,6 +14,6 @@ public class UsVet extends Usuario {
         
         // Se instancia y arranca únicamente el menú de consultas
         MenuConsultas menuConsultas = new MenuConsultas();
-        menuConsultas.MenuConsultas();
+        menuConsultas.Menuconsultas();
     }
 }
