@@ -4,7 +4,7 @@ public abstract class Animal {
 
     protected int Piernitas;
 
-    public Animal() {
+    protected Animal(int Piernitas) {
         this.Piernitas = Piernitas;
     }
 

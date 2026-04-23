@@ -3,10 +3,8 @@ package INT2;
 public class Arania extends Animal {
 
     public Arania() {
-        this.Piernitas = 8; 
+        super(8);
     }
-
-    
 
         @Override
         public void comer() {
