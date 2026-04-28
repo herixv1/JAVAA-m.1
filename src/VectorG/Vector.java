@@ -33,8 +33,8 @@ public class Vector <T>{
     public String presentar(T obj, Comparator<? super T> comp) {
         String info="";
         if (!Vacio()) {
-        for (int i = 0; i <= tam; i++) {
-            if (comp.compare(datos[i], obj) == 0) {
+        for (int i = 0; i < tam; i++) {
+            if (datos[i] != null && comp.compare(datos[i], obj) == 0) {
                 info += datos[i] + "\n";
             }
         }
