@@ -1,13 +1,18 @@
 package People;
 
-public class Persona {
+public abstract class Persona {
 
-    private String nombre;
-    private String RFC;
+    protected String nombre;
+    protected String RFC;
 
     public Persona(String nombre, String RFC) {
         this.nombre = nombre;
         this.RFC = RFC;
+    }
+
+    public Persona() {
+        this.nombre = "";
+        this.RFC = "";
     }
 
     public String getNombre() {

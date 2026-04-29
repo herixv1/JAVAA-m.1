@@ -8,6 +8,11 @@ public class Mantenimiento extends Empleado {
         this.bono = bono;
     }
 
+    public Mantenimiento() {
+        super();
+        this.bono = 0;
+    }
+
     public float getBono() {
         return bono;
     }

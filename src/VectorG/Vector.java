@@ -32,16 +32,31 @@ public class Vector <T>{
 
     public String presentar(T obj, Comparator<? super T> comp) {
         String info="";
+        
         if (!Vacio()) {
         for (int i = 0; i < tam; i++) {
             if (datos[i] != null && comp.compare(datos[i], obj) == 0) {
-                info += datos[i] + "\n";
+                return info += datos[i] + "\n";
             }
         }
         } else {
             info = "El vector esta vacio";
         }
         return info;
+    }
+
+    public String buscar(T obj, Comparator<? super T> comp) {
+        String dato="";
+        if (!Vacio()) {
+        for (int i = 0; i < tam; i++) {
+            if (datos[i] != null && comp.compare(datos[i], obj) == 0) {
+                return dato += datos[i] + "\n";
+            }
+        }
+        } else {
+            dato = "erono";
+        }
+        return dato;
     }
 
     @Override

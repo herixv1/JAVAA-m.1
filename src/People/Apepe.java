@@ -1,7 +1,7 @@
 package People;
 
 import VectorG.Vector;
-import VectorG.Comparadores;
+
 
 public class Apepe {
     public static void main(String[] args) {
@@ -14,11 +14,32 @@ public class Apepe {
         Rventas empleado1 = new Rventas("Git", "GHC777","24/7", 3, 15);
         datos.add(empleado1);
 
-        System.out.println("Busqueda por RFC");
+        /*System.out.println("Busqueda por RFC");
         System.out.println(datos.presentar(empleado1, Comparadores.PorRFC));
 
         System.out.println("Busqueda por nombre");
-        System.out.println(datos.presentar(empleado1, Comparadores.PorNombre));
+        System.out.println(datos.presentar(empleado1, Comparadores.PorNombre));*/
+
+        Empleado buscar = new Empleado();
+        buscar.setNombre("simeone");
+
+        buscar=(Empleado) datos.buscar(buscar, Comparadores.PorNombre);
+        
+        
+        if(buscar instanceof Mantenimiento){
+            buscar=(Mantenimiento) buscar;
+        }
+        else 
+            buscar=(Rventas) buscar;
+
+
+
+        if (buscar != null) {
+            System.out.println(buscar.toString()); 
+        }
+         else {
+            System.out.println("No se encontró");
+        }
 
     }
 

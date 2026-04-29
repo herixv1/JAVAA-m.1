@@ -1,9 +1,6 @@
-package VectorG;
+package People;
 
 import java.util.Comparator;
-import People.Mantenimiento;
-import People.Persona;
-import People.Rventas;
 
 public class Comparadores {
 

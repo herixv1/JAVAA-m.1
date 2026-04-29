@@ -8,6 +8,11 @@ public class Rventas extends Empleado {
         this.comision = comision;
     }
 
+    public Rventas() {
+        super();
+        this.comision = 0;
+    }
+
     public int getComision() {
         return comision;
     }
