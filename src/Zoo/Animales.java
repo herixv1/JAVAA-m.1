@@ -3,13 +3,13 @@ package Zoo;
 public abstract class Animales {
     protected String raza;
     protected String especie;
-    protected int Nac;
+    protected int nac;
 
-    public Animales(String raza, String especie, int Nac) {
+    public Animales(String raza, String especie, int nac) {
         super();
         this.raza = raza;
         this.especie = especie;
-        this.Nac = Nac;
+        this.nac = nac;
     }
 
     public Animales() {
@@ -33,15 +33,15 @@ public abstract class Animales {
     }
     
     public int getNac() {
-        return Nac;
+        return nac;
     }
 
     public void setNac(int nac) {
-        Nac = nac;
+        this.nac = nac;
     }
 
     @Override
     public String toString() {
-        return "raza=" + raza + ", especie=" + especie + ", Nac=" + Nac + "]";
+        return "raza=" + raza + ", especie=" + especie + ", nac=" + nac + "]";
     }  
 }

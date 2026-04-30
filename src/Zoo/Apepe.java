@@ -46,7 +46,7 @@ public class Apepe {
                     System.out.println("\nBai teacher");
                     break;
                 default:
-                    System.out.println("\nOpción no válida. Intenta de nuevo.");
+                    System.out.println("\nOpcion no valida");
             }
         } while (opcion != 5);
 

@@ -18,7 +18,7 @@ public class Mamiferos extends Animales {
 
     @Override
     public String toString() {
-        return "Mamiferos [dieta=" + dieta + ", " + super.toString() + "\n";
+        return "Mamiferos [dieta=" + dieta + ", " + super.toString() + "]\n";
     }
 
     
