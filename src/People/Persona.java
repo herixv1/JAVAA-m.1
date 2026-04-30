@@ -33,9 +33,6 @@ public abstract class Persona {
 
     @Override
     public String toString() {
-        return "Persona [nombre=" + nombre + ", RFC=" + RFC + "]";
+        return "Persona nombre=" + nombre + ", RFC=" + RFC + ", ";
     }
-
-    
-
 }

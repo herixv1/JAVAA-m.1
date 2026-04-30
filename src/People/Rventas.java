@@ -4,7 +4,7 @@ public class Rventas extends Empleado {
     private int comision;
 
     public Rventas(String nombre, String RFC, String turno, int noEmp, int comision) {
-        super(nombre, RFC, turno, noEmp);
+        super(nombre, RFC, turno, noEmp, 0);
         this.comision = comision;
     }
 
@@ -23,7 +23,6 @@ public class Rventas extends Empleado {
 
     @Override
     public String toString() {
-        return super.toString() + ", comision=" + comision + "]";
+        return super.toString() + ", Rventas-comision=" + comision + "]\n";
     }
-
 }

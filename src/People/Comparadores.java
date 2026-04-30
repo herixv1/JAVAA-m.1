@@ -16,4 +16,18 @@ public class Comparadores {
     public static Comparator<Mantenimiento> PorBono = (a,b) ->
     Float.compare(a.getBono(), b.getBono());
 
+    public static Comparator<Persona> PorTurnoYSueldo = (a, b) -> {
+        if (a instanceof Empleado && b instanceof Empleado) {
+            Empleado empA = (Empleado) a;
+            Empleado empB = (Empleado) b;
+            
+            int comparacionTurno = empA.getTurno().compareToIgnoreCase(empB.getTurno());
+            if (comparacionTurno == 0) {
+                return Double.compare(empA.getSueldo(), empB.getSueldo());
+            }
+            return comparacionTurno;
+        }
+        return 0;
+    };
+
 }

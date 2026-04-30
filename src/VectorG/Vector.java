@@ -9,7 +9,7 @@ public class Vector <T>{
     private int tam;
 
     public Vector(int tam) {
-        this.tam = 1;
+        this.tam = -1;
         this.datos = (T[]) new Object[tam];
     }
 
@@ -26,7 +26,7 @@ public class Vector <T>{
             datos[++tam] = objetoT;
             return "Dato agregado correctamente";
         } else {
-            return "El vector esta lleno";
+            return "Sin espacio disponible";
         }
     }
 
@@ -34,10 +34,13 @@ public class Vector <T>{
         String info="";
         
         if (!Vacio()) {
-        for (int i = 0; i < tam; i++) {
+        for (int i = 0; i <= tam; i++) {
             if (datos[i] != null && comp.compare(datos[i], obj) == 0) {
-                return info += datos[i] + "\n";
+                info += datos[i] + "\n";
             }
+        }
+        if (info.isEmpty()) {
+            info = "El dato no se encontro";
         }
         } else {
             info = "El vector esta vacio";
@@ -45,18 +48,29 @@ public class Vector <T>{
         return info;
     }
 
-    public String buscar(T obj, Comparator<? super T> comp) {
-        String dato="";
+    public T buscar(T obj, Comparator<? super T> comp) {
         if (!Vacio()) {
-        for (int i = 0; i < tam; i++) {
+        for (int i = 0; i <= tam; i++) {
             if (datos[i] != null && comp.compare(datos[i], obj) == 0) {
-                return dato += datos[i] + "\n";
+                return datos[i];
             }
         }
-        } else {
-            dato = "erono";
         }
-        return dato;
+        return null;
+    }
+
+    public void ordenar(Comparator<? super T> comp) {
+        if (Vacio()) return;
+
+        for (int i = 0; i <= tam; i++) {
+            for (int h = 0; h < tam - i; h++) {
+                if (comp.compare(datos[h], datos[h + 1]) > 0) {
+                    T temp = datos[h];
+                    datos[h] = datos[h + 1];
+                    datos[h + 1] = temp;
+                }
+            }
+        }
     }
 
     @Override

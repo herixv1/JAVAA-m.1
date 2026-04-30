@@ -4,7 +4,7 @@ public class Mantenimiento extends Empleado {
     private float bono;
 
     public Mantenimiento(String nombre, String RFC, String turno, int noEmp, float bono) {
-        super(nombre, RFC, turno, noEmp);
+        super(nombre, RFC, turno, noEmp, 0);
         this.bono = bono;
     }
 
@@ -23,9 +23,6 @@ public class Mantenimiento extends Empleado {
 
     @Override
     public String toString() {
-        return "Mantenimiento [bono=" + bono + "]";
+        return super.toString() + ", Mantenimiento-bono=" + bono + "]\n";
     }
-
-    
-
 }
