@@ -2,7 +2,7 @@ package Mcitas;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import Veterinaria.Mascota;
+import MVeterinaria.Mascota;
 
 public class Appcitas {
 

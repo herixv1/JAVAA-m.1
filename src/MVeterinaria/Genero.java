@@ -1,4 +1,4 @@
-package Veterinaria;
+package MVeterinaria;
 
 public enum Genero {
 

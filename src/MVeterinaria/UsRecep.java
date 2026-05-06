@@ -1,4 +1,4 @@
-package Veterinaria;
+package MVeterinaria;
 import javax.swing.JOptionPane;
 import Mcitas.Appcitas;
 // import Mcitas.Appcitas; // Descomenta esto dependiendo de cómo se llame tu clase principal de citas

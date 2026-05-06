@@ -1,4 +1,4 @@
-package Veterinaria;
+package MVeterinaria;
 import javax.swing.JOptionPane;
 import Mconsultas.MenuConsultas;
 

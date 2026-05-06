@@ -3,7 +3,7 @@ package Mcitas;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import Veterinaria.Mascota;
+import MVeterinaria.Mascota;
 
 public class Cita {
     private int idcita;
