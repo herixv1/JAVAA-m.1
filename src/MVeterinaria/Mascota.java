@@ -9,7 +9,7 @@ public class Mascota implements Comparable<Mascota>{
    private String nombre;
    private String raza;
    private String color;
-   private String genero;
+   private Genero genero;
    private LocalDate nacio;
    private LocalDate murio;
    private int numConsulta;
@@ -18,7 +18,7 @@ public class Mascota implements Comparable<Mascota>{
    
    		// constructor metodo que se utiliza para la inicializacion y creacion de objeto
        // este metodo se ejecuta automaticamente al crear el objeto
-   public Mascota(int idMascota, String nombre, String raza, String color, String genero, LocalDate nacio,
+   public Mascota(int idMascota, String nombre, String raza, String color, Genero genero, LocalDate nacio,
 		LocalDate murio) {
 	this.idMascota = idMascota;
 	this.nombre = nombre;
@@ -28,7 +28,7 @@ public class Mascota implements Comparable<Mascota>{
 	this.nacio = nacio;
 	this.murio = murio;
 	 this.numConsulta  = 0;
-	this.duenio = new Dueno();
+	this.duenio = null;
 	this.caso = 1;
 	
    }
@@ -55,7 +55,7 @@ public class Mascota implements Comparable<Mascota>{
 		this.genero = null;
 		this.nacio = null;
 		this.murio = null;
-		this.duenio = new Dueno();
+		this.duenio = null;
 		this.caso = 1;
 	   }
    
@@ -103,10 +103,10 @@ public class Mascota implements Comparable<Mascota>{
    public void setColor(String color) {
 	this.color = color;
    }
-   public String getGenero() {
+   public Genero getGenero() {
 	return genero;
    }
-   public void setGenero(String genero) {
+   public void setGenero(Genero genero) {
 	this.genero = genero;
    }
    public LocalDate getNacio() {
@@ -131,7 +131,7 @@ public class Mascota implements Comparable<Mascota>{
 	   this.numConsulta++;
    }
    
-   public int getNumComsulta() {
+   public int getNumConsultas() {
 	   return this.numConsulta;
    }
    public void contarCons() {
@@ -147,7 +147,7 @@ public class Mascota implements Comparable<Mascota>{
    		// este metodo es creado para enviar el estado del objeto (solo algunos valores)
    public String presentaMascota() {
 	   return  this.idMascota+", "+this.nombre+", "
-			   +this.genero+ ", Edad: "+ calcularEdad()+"  --- Dueño: " 
+			   +this.genero.getDescripcion()+ ", Edad: "+ calcularEdad()+"  --- Dueño: " 
 			   +this.getDuenio().getNombre()+" \n";
 			   
    }
@@ -199,12 +199,5 @@ public class Mascota implements Comparable<Mascota>{
 		}
 		  return Integer.MAX_VALUE;
 	  }
-   
-  
-
-	  
-   
-   
-    
    
 }

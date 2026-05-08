@@ -2,55 +2,53 @@ package MVeterinaria;
 
 public class Dueno {
 	private String nombre;
-	private String dir;
+	private String paterno;
+	private String materno;
+	private String calle;
 	private String colonia;
 	private String ciudad;
 	private String tel;
 	private String mail;
-	
-	public Dueno(String nombre, String dir, String tel, 
-			       String mail, String colonia) {
-		
+	private int membresia;
+	public Dueno(String nombre, String paterno, String materno, String calle, String colonia, String ciudad, String tel,
+			String mail, int membresia) {
 		this.nombre = nombre;
-		this.dir = dir;
+		this.paterno = paterno;
+		this.materno = materno;
+		this.calle = calle;
+		this.colonia = colonia;
+		this.ciudad = ciudad;
 		this.tel = tel;
 		this.mail = mail;
-		this.ciudad = "Mexicali, B.C";
-		this.colonia= null;
+		this.membresia = membresia;
 	}
+
 	public Dueno(String nombre) {
-	
-	this.nombre = nombre;
-	this.dir = "";
-	this.tel = "";
-	this.mail = "";
-	this.ciudad = "Mexicali, B.C";
-	this.colonia= "";
-}
-	public Dueno(String nombre, String tel) {
-		
 		this.nombre = nombre;
-		this.tel = tel;
 	}
-	public Dueno(	) {
-	this.nombre = null;
-	this.dir = null;
-	this.tel = null;
-	this.mail = null;
-	this.ciudad = "Mexicali";
-	this.colonia= null;
-}
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getDir() {
-		return dir;
+	public String getPaterno() {
+		return paterno;
 	}
-	public void setDir(String dir) {
-		this.dir = dir;
+	public void setPaterno(String paterno) {
+		this.paterno = paterno;
+	}
+	public String getMaterno() {
+		return materno;
+	}
+	public void setMaterno(String materno) {
+		this.materno = materno;
+	}
+	public String getCalle() {
+		return calle;
+	}
+	public void setCalle(String calle) {
+		this.calle = calle;
 	}
 	public String getColonia() {
 		return colonia;
@@ -76,15 +74,19 @@ public class Dueno {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+	public int getMembresia() {
+		return membresia;
+	}
+	public void setMembresia(int membresia) {
+		this.membresia = membresia;
+	}
 	@Override
 	public String toString() {
-		return "Dueno [nombre=" + nombre + ", dir=" + dir
-				+ ", colonia=" + colonia + ", ciudad=" 
-				+ ciudad + ", tel="
-				+ tel + ", mail=" + mail + "]";
+		return "Dueno [nombre=" + nombre + ", paterno=" + paterno + ", materno=" + materno + ", calle=" + calle
+				+ ", colonia=" + colonia + ", ciudad=" + ciudad + ", tel=" + tel + ", mail=" + mail + ", membresia="
+				+ membresia + "]";
 	}
-	
-	
-	
 
+	
+	
 }

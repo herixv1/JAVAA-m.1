@@ -1,8 +1,8 @@
 package Mcitas;
 
-public enum Estadocita {
+public enum EstadoCita {
     PROGRAMADA,
-    ENPROCESO,
+    EN_PROCESO,
     CANCELADA,
     FINALIZADA;
 
@@ -10,7 +10,7 @@ public enum Estadocita {
         switch (this) {
             case PROGRAMADA:
                 return "la cita ha sido programada";
-            case ENPROCESO:
+            case EN_PROCESO:
                 return "la cita está en proceso";
             case CANCELADA:
                 return "la cita ha sido cancelada";

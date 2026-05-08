@@ -1,45 +1,46 @@
 package MVeterinaria;
 import javax.swing.JOptionPane;
+import Mcitas.AdminCitas; 
+import Mconsultas.MenuConsultas; 
 
 public class InicioS {
-
-    // Método Genérico: Ejecuta el menú sin importar qué tipo de usuario sea
-    public static <T extends Usuario> void ejecutarMenuRol(T usuarioActual) {
-        usuarioActual.iniciarMenu(); 
-    }
-
     public static void main(String[] args) {
         String[] roles = {"Administrador", "Veterinario", "Recepcionista"};
+        int eleccion = 0; 
         
-        int eleccion = JOptionPane.showOptionDialog(null, 
-                "Seleccione su rol de acceso al sistema:", 
-                "Sistema Veterinario - Mr. Firulays", 
-                JOptionPane.DEFAULT_OPTION, 
-                JOptionPane.QUESTION_MESSAGE, 
-                null, 
-                roles, 
-                roles);
+        do {
+            eleccion = JOptionPane.showOptionDialog(null, 
+                    "Seleccione su rol de acceso al sistema:", 
+                    "Sistema Veterinario - Mr. Firulays", 
+                    JOptionPane.DEFAULT_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE, 
+                    null, 
+                    roles, 
+                    roles);
 
-        Usuario usuarioLogueado = null;
-
-        switch (eleccion) {
-            case 0: // Administrador
-                usuarioLogueado = new UsAdmin("Admin Principal");
-                break;
-            case 1: // Veterinario
-                usuarioLogueado = new UsVet("Veterinario en Turno");
-                break;
-            case 2: // Recepcionista
-                usuarioLogueado = new UsRecep("Recepcionista en Turno");
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "Saliendo del sistema...");
-                System.exit(0);
-        }
-
-        // Si se logueó correctamente, se invoca el método genérico
-        if (usuarioLogueado != null) {
-            ejecutarMenuRol(usuarioLogueado);
-        }
+            switch (eleccion) {
+                case 0: // Administrador
+                    JOptionPane.showMessageDialog(null, "Bienvenido(a) Sr(a) stark");
+                    MenuMascotas appAdmin = new MenuMascotas();
+                    appAdmin.menuMascotas();
+                    break;
+                    
+                case 1: // Veterinario
+                    JOptionPane.showMessageDialog(null, "Bienvenido(a) Dr(a) dolittle");
+                    MenuConsultas menuConsultas = new MenuConsultas();
+                    menuConsultas.menuConsultas(); 
+                    break;
+                    
+                case 2: // Recepcionista
+                    JOptionPane.showMessageDialog(null, "Bienvenido(a) Recepcionista");
+                    AdminCitas menuCitas = new AdminCitas();
+                    menuCitas.menucitas(); 
+                    break;
+                    
+                default:
+                    JOptionPane.showMessageDialog(null, "Saliendo");
+                    System.exit(0); 
+            }
+        } while (true);
     }
 }
