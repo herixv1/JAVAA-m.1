@@ -1,6 +1,6 @@
 package Mcitas;
 
-public enum EstadoCita {
+public enum Estadocita {
     PROGRAMADA,
     EN_PROCESO,
     CANCELADA,

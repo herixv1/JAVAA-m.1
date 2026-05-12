@@ -13,6 +13,26 @@ public class Vector <T>{
         this.datos = (T[]) new Object[tam];
     }
 
+    public T[] getDatos() {
+  	  T[] datosIN = (T[]) new Object[this.getTope()+1];
+  	  for (int i = 0; i <= tam; i++) {
+  		  datosIN[i] = datos[i];
+  	  }
+  	 return datosIN;
+	}
+
+	public void setDatos(T[] datos) {
+		this.datos = datos;
+	}
+
+	public int getTope() {
+		return tam;
+	}
+
+	public void setTope(int tope) {
+		this.tam = tope;
+	}
+
     private boolean lleno() {
         return this.tam == datos.length-1;
     }

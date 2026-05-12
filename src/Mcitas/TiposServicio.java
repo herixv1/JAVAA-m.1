@@ -1,6 +1,6 @@
 package Mcitas;
 
-public enum TipoServicio {
+public enum TiposServicio {
     CONSULTA("Consulta",500),
     VACUNACION("Vacuna",750),
     CIRUGIA("Cirugía",10000),
@@ -9,7 +9,7 @@ public enum TipoServicio {
     private double precioBase;
     private String tipo;
 
-    private TipoServicio(String tipo, double precioBase) {
+    private TiposServicio(String tipo, double precioBase) {
         this.tipo = tipo;
         this.precioBase = precioBase;
     }
