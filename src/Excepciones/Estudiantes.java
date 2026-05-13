@@ -2,7 +2,7 @@ package Excepciones;
 
 public class Estudiantes {
 
-private String matricula;
+    private String matricula;
     private String nombre;
     private double promedio;
 
@@ -24,22 +24,21 @@ private String matricula;
         return promedio;
     }
 
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setPromedio(double promedio) {
-		this.promedio = promedio;
-	}
+    public void setPromedio(double promedio) {
+        this.promedio = promedio;
+    }
 
-	@Override
-	public String toString() {
-		return "Estudiante [matricula=" + matricula + ", nombre=" + nombre + ", promedio=" + promedio + "]";
-	}
-    
-    
+    @Override
+    public String toString() {
+        return "Estudiante [matricula=" + matricula + ", nombre=" + nombre + ", promedio=" + promedio + "]";
+    }
+
 }

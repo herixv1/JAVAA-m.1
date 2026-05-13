@@ -13,14 +13,14 @@ public class Cita {
     private java.time.LocalTime horaCita;
     private Mascota mascota;
     private TipoServicio tiposervicio;
-    private EstadoCita estadoCita;
+    private Estadocita estadoCita;
     private boolean primeravez;
     private Veterinario veterinario;
     private boolean asistio;
 
     
     public Cita(int idcita, LocalDate fechaCita, LocalTime horaCita, Mascota mascota, TipoServicio tiposervicio,
-            EstadoCita estadoCita, boolean primeravez, Veterinario veterinario, boolean asistio) {
+            Estadocita estadoCita, boolean primeravez, Veterinario veterinario, boolean asistio) {
         this.idcita = idcita;
         this.fechaCita = fechaCita;
         this.horaCita = horaCita;
@@ -72,11 +72,11 @@ public class Cita {
         this.tiposervicio = tiposervicio;
     }
 
-    public EstadoCita getEstadoCita() {
+    public Estadocita getEstadoCita() {
         return estadoCita;
     }
 
-    public void setEstadoCita(EstadoCita estadoCita) {
+    public void setEstadoCita(Estadocita estadoCita) {
         this.estadoCita = estadoCita;
     }
 

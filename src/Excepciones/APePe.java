@@ -1,102 +1,82 @@
 package Excepciones;
 
+import java.util.Scanner;
+
 public class APePe {
 
- public static void main(String[] args) {
+        public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
 
-        Curso curso = new Curso("POO/A","Programación Orientada a Objetos", 10);
+                Curso curso = new Curso("POO", "Programacion Orientada a Objetos", 3);
 
-        Estudiantes e1 = new Estudiantes( "A001","Juan",90);
+                int opcion = 0;
 
-        Estudiantes e2 = new Estudiantes( "A002",
-                        "Ana",
-                        60
-                );
+                do {
+                        System.out.println("\n  SISTEMA DE GESTION DE INSCRIPCIONES");
+                        System.out.println("==========================================");
+                        System.out.println("Curso actual: " + curso.getNombre() + " (" + curso.getClave() + ")");
+                        System.out.println("Cupo maximo: " + curso.getCupoMaximo());
+                        System.out.println("------------------------------------------");
+                        System.out.println("1. Inscribir nuevo estudiante");
+                        System.out.println("2. Mostrar estudiantes inscritos");
+                        System.out.println("3. Salir");
+                        System.out.print("Seleccione una opcion: ");
 
-        Estudiantes e3 =
-                new Estudiantes(
-                        "",
-                        "Luis",
-                        85
-                );
+                        try {
+                                opcion = Integer.parseInt(scanner.nextLine());
 
-        Estudiantes e4 =
-                new Estudiantes(
-                        "A004",
-                        "",
-                        95
-                );
+                                switch (opcion) {
+                                        case 1:
+                                                System.out.println("\n--- DATOS DEL ESTUDIANTE ---");
 
-        Estudiantes e5 =
-                new Estudiantes(
-                        "A005",
-                        "Carlos",
-                        100
-                );
+                                                try {
+                                                        System.out.print("Ingrese matricula: ");
+                                                        String matricula = scanner.nextLine();
 
-        // ==========================================
-        // MANEJO DE EXCEPCIONES
-        // ==========================================
+                                                        System.out.print("Ingrese nombre: ");
+                                                        String nombre = scanner.nextLine();
 
-        try {
+                                                        System.out.print("Ingrese promedio: ");
+                                                        double promedio = Double.parseDouble(scanner.nextLine());
 
-            curso.inscribir(e1);
+                                                        Estudiantes nuevoEstudiante = new Estudiantes(matricula, nombre,
+                                                                        promedio);
+                                                        try {
+                                                                curso.inscribir(nuevoEstudiante);
+                                                        } catch (InscripcionException e) {
+                                                                System.out.println( "\n" + e.getMessage());
+                                                        }
 
-        } catch (InscripcionException e) {
+                                                } catch (NumberFormatException e) {
+                                                        System.out.println("\n Solo debes ingresar numeros");
+                                                } catch (Exception e) {
+                                                        System.out.println(
+                                                                        "\nError inesperado al procesar los datos del estudiante.");
+                                                }
 
-            System.out.println(
-                    "ERROR: " + e.getMessage()
-            );
+                                                break;
+
+                                        case 2:
+                                                System.out.println("\n--- LISTA DE ESTUDIANTES INSCRITOS ---");
+                                                curso.mostrarInscritos();
+                                                break;
+
+                                        case 3:
+                                                System.out.println("\nSaliendo...");
+                                                break;
+
+                                        default:
+                                                System.out.println("\nOpcion no valida. Seleccione 1, 2 o 3.");
+                                }
+
+                        } catch (NumberFormatException e) {
+                                System.out.println("\nError: Solo ingresar numeros en el menu principal.");
+                        } catch (Exception e) {
+                                System.out.println("\nOcurrio un error inesperado: " + e.getMessage());
+                        }
+
+                } while (opcion != 3);
+
+                scanner.close();
         }
-
-        try {
-
-            curso.inscribir(e2);
-
-        } catch (InscripcionException e) {
-
-            System.out.println(
-                    "ERROR: " + e.getMessage()
-            );
-        }
-
-        try {
-
-            curso.inscribir(e3);
-
-        } catch (InscripcionException e) {
-
-            System.out.println(
-                    "ERROR: " + e.getMessage()
-            );
-        }
-
-        try {
-
-            curso.inscribir(e4);
-
-        } catch (InscripcionException e) {
-
-            System.out.println(
-                    "ERROR: " + e.getMessage()
-            );
-        }
-
-        try {
-
-            curso.inscribir(e5);
-
-        } catch (InscripcionException e) {
-
-            System.out.println(
-                    "ERROR: " + e.getMessage()
-            );
-        }
-
-        // ==========================================
-        // MOSTRAR INSCRITOS
-        // ==========================================
-
-        curso.mostrarInscritos();
-    }
 }

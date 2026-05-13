@@ -1,4 +1,5 @@
 package Excepciones;
+
 import java.util.ArrayList;
 import VectorG.Vector;
 
@@ -16,91 +17,75 @@ public class Curso {
     }
 
     public String getClave() {
-		return clave;
-	}
-
-	public void setClave(String clave) {
-		this.clave = clave;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public int getCupoMaximo() {
-		return cupoMaximo;
-	}
-
-	public void setCupoMaximo(int cupoMaximo) {
-		this.cupoMaximo = cupoMaximo;
-	}
-
-	public Vector<Estudiantes> getInscritos() {
-		return inscritos;
-	}
-
-	public void setInscritos(Vector<Estudiantes> inscritos) {
-		this.inscritos = inscritos;
-	}
-
-	// ==========================================
-    // MÉTODO QUE PROPAGA EXCEPCIONES
-    // ==========================================
-
-	public void inscribir(Estudiantes e)  throws InscripcionException {
-
-		// Validar matrícula
-
-        if(e.getMatricula() == null || e.getMatricula().isEmpty()) {
-
-            throw new MatriculaInvalidaEx(
-                    "La matrícula está vacía"   );
-        }
-        
-        // Validar nombre
-
-        if(e.getNombre() == null ||
-           e.getNombre().isEmpty()) {
-
-            throw new NombreVacioEx(
-                    "El nombre está vacío"
-            );
-        }
-
-        // Validar promedio
-		
-        if(e.getPromedio() < 70){
-            throw new PromedioInsuficienteEx("Promedio insuficiente para inscripción");
-        }
-
-        
-        // Validar cupo
-
-        if(inscritos.getTope() >= cupoMaximo) {
-
-            throw new CursollenoEX(
-                    "El curso está lleno"
-            );
-        }
-        
-        
-        inscritos.add(e);
-        System.out.println("Estudiante inscrito correctamente");
+        return clave;
     }
 
-        
-	// ojo ¿Por qué (T[]) new Object[] es peligroso?
-	    // Porque genera errores de ejecución (ClassCastException) debido a que Java elimina la información genérica en runtime.
-    
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getCupoMaximo() {
+        return cupoMaximo;
+    }
+
+    public void setCupoMaximo(int cupoMaximo) {
+        this.cupoMaximo = cupoMaximo;
+    }
+
+    public Vector<Estudiantes> getInscritos() {
+        return inscritos;
+    }
+
+    public void setInscritos(Vector<Estudiantes> inscritos) {
+        this.inscritos = inscritos;
+    }
+
+    // MÉTODO QUE PROPAGA EXCEPCIONES
+    public void inscribir(Estudiantes e) throws InscripcionException {
+
+        // Validar matrícula
+        if (e.getMatricula() == null || e.getMatricula().isEmpty()) {
+
+            throw new MatriculaInvalidaEx(
+                    "\n La matrícula está vacía");
+        }
+
+        // Validar nombre
+        if (e.getNombre() == null || e.getNombre().isEmpty()) {
+            throw new NombreVacioEx("El nombre está vacío");
+        }
+        if (!e.getNombre().matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$")) {
+            throw new NombreVacioEx("El nombre no debe contener numeros ni caracteres especiales");
+        }
+        // Validar promedio
+        if (e.getPromedio() < 70) {
+            throw new PromedioInsuficienteEx("\n Promedio insuficiente para inscripcion");
+        }
+
+        // Validar cupo
+        if (inscritos.getTope() >= cupoMaximo - 1) {
+
+            throw new CursollenoEX(
+                    "El curso está lleno");
+        }
+
+        inscritos.add(e);
+        System.out.println("\n Estudiante inscrito correctamente");
+    }
+
     public void mostrarInscritos() {
-        
+
         Object[] datos = inscritos.getDatos();
-        
-        for(Object obj : datos){
+
+        for (Object obj : datos) {
             Estudiantes e = (Estudiantes) obj;
             System.out.println(e.getNombre());
         }
